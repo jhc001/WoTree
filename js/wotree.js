@@ -20,6 +20,10 @@
             var dom = WoTree(tree).format().target();
             $(this.treedom).append(dom);
         },
+        replace:function(tree){
+            var dom = WoTree(tree).format().target();
+            $(this.treedom).html(dom);
+        },
         clickFun:function(){
           if($(this).hasClass('ope')){
             $(this).parent().find('+ul').hide();
