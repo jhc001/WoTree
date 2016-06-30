@@ -21,8 +21,12 @@
             $(this.treedom).append(dom);
         },
         replace:function(tree){
-            var dom = WoTree(tree).format().target();
-            $(this.treedom).html(dom);
+            if(!tree){
+        		 var dom = WoTree(tree).format().target();
+        		 $(this.treedom).html(dom);
+        	}else{
+        		 $(this.treedom).html('');
+        	}
         },
         clickFun:function(){
           if($(this).hasClass('ope')){
