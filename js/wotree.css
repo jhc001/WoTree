@@ -2,7 +2,7 @@
 	list-style-type:none;
 }
 .list{
-	background:url('line_conn.gif') 0 0 repeat-y;
+	#background:url('line_conn.gif') 0 0 repeat-y;
 	padding-left:32px;
 	display:table;
 }
@@ -16,10 +16,10 @@
 	width:16px;
 }
 .clo{
-	background-position:-92px -18px;
+	background-position: -74px -36px;
 }
 .ope{
-	background-position: -74px -36px;
+	background-position:-92px -18px;
 }
 .tmg{
 	background-position:-56px -18px;
