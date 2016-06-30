@@ -1,7 +1,7 @@
-.list li,.tree li{
+.tree li{
 	list-style-type:none;
 }
-.list{
+.tree{
 	#background:url('line_conn.gif') 0 0 repeat-y;
 	padding-left:32px;
 	display:table;
