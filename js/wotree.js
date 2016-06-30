@@ -30,10 +30,10 @@
         },
         clickFun:function(){
           if($(this).hasClass('ope')){
-            $(this).parent().find('+ul').hide();
+            $(this).parent().parent().find('>ul').hide();
             $(this).removeClass('ope').addClass('clo');
           }else{
-            $(this).parent().find('+ul').show();
+        	  $(this).parent().parent().find('>ul').show();
             $(this).removeClass('clo').addClass('ope');
           }
         },
@@ -52,7 +52,7 @@
                 var tx = curr.attr('tx')||curr.text()||''; //节点显示的内容
                 //没有子节点
                 if(curr.find('>ul').length<1){
-                     curr.addClass("nmtxt").html('<span class="tb tmg"></span>'+tx);
+                     curr.addClass("nmtxt").prepend('<span class="tb tmg"></span>'+tx);
                 }else{
                     curr.prepend('<p class="nmtxt"><span class="tb clo"></span>'+tx+'</p>');
                     var ul = curr.find('>ul').hide()[0];
