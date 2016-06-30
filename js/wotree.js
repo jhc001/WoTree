@@ -1,7 +1,7 @@
 (
   function(){
      var  WoTree = function(treedom,template){
-        return new WoTree.prototype.init(treedom,template);
+        return new WoTree.prototype.init(treedom);
     };
 
     WoTree.prototype = {
