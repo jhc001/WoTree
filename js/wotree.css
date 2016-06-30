@@ -16,7 +16,7 @@ p.nmtxt{
 	display:inline-block;
 	background:url('zTreeStandard.gif');
 	height:16px;
-	width:16px;
+	width:15px;
 }
 .clo{
 	background-position: -74px -36px;
@@ -29,4 +29,10 @@ p.nmtxt{
 }
 .add{
 	background-position:-144px 0;
+}
+.sel{
+	background-position:-13px 2px;
+}
+.unsel{
+	background-position:2px 2px;
 }
