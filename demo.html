@@ -28,7 +28,11 @@
 					<li>订单完成</li>
 				</ul>
 			</li>
-			<li>22222222</li>
+			<li tx="点我加个儿子" onclick="addson(this);">
+				<ul>
+					<li>儿子1</li>
+				</ul>
+			</li>
 			<li>33333333</li>
 		</ul>
 	<div id="div1"></div>
@@ -36,7 +40,12 @@
 	</body>
 	<SCRIPT LANGUAGE="JavaScript">
 		var wtree = WoTree($("#demo")[0]).format();
+		wtree.append('<li>加了一个哦((**))</li>');
+		wtree.append('<li tx="加了一个大的哦((**))"><ul><li>儿子1</li><li>儿子2</li></ul>');
 
+		function addson(dom){
+			WoTree($(dom).find('>ul')[0]).append('<li>生的儿子</li>');
+		}
 	</SCRIPT>
 
 </html>

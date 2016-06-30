@@ -13,12 +13,13 @@
                 this.treedom = treedom;
             }
         },
-        leafHtml:function(name){
-            return '<li class="nmtxt"><span class="tb tmg"></span>'+name+'</li>';
+        target:function(){
+            return this.treedom;
         },
-        
-
-       
+        append:function(tree){
+            var dom = WoTree(tree).format().target();
+            $(this.treedom).append(dom);
+        },
         clickFun:function(){
           if($(this).hasClass('ope')){
             $(this).parent().find('+ul').hide();
@@ -57,7 +58,6 @@
             return this;
         }
     };
-
     WoTree.prototype.init.prototype = WoTree.prototype;
     window.WoTree = WoTree;
   }()
