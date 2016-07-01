@@ -20,6 +20,11 @@
             var dom = WoTree(tree).format(isParent).target();
             $(this.treedom).append(dom);
         },
+        setName:function(name){
+        	var curr= $(this.treedom);
+        	curr.find('span[class=tx]').first().text(name);
+        	curr.attr('tx',name);
+        },
         replace:function(tree){
             if(tree){
         		 var dom = WoTree(tree).format().target();
