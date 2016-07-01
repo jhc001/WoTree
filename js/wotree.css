@@ -1,8 +1,11 @@
-.tree li{
+.tree > li{
 	list-style-type:none;
 }
+.tree > li:not(:last-child){
+	background:url('line_conn.gif') 0 0 repeat-y;
+}
+
 .tree{
-	#background:url('line_conn.gif') 0 0 repeat-y;
 	padding-left:32px;
 	display:table;
 }

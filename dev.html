@@ -6,6 +6,7 @@
 		</TITLE>
 		<meta charset="gbk" />
 		<style type="text/css">
+
 		</style>
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/wotree.js"></script>
@@ -26,11 +27,6 @@
 				<ul>
 					<li>草稿</li>
 					<li>订单完成</li>
-					<li tx="未完成">
-						<ul>
-							<li>11111</li><li>11111</li>
-						</ul>
-					</li>
 				</ul>
 			</li>
 			<li tx="点我加个儿子" onclick="addson(this);">
@@ -51,6 +47,9 @@
 		function addson(dom){
 			WoTree($(dom).find('>ul')[0]).append('<li>生的儿子</li>');
 		}
-	</SCRIPT>
 
+		if(''){
+			alert(1);
+		}
+	</SCRIPT>
 </html>
