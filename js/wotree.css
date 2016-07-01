@@ -12,9 +12,6 @@
 .nmtxt{
 	margin:0 0 1px 0;
 }
-p.nmtxt{
-	display: inline-block;
-}
 .tb{
 	display:inline-block;
 	background:url('zTreeStandard.gif');
