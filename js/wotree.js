@@ -42,7 +42,7 @@
             $(this).removeClass('clo').addClass('ope');
           }
         },
-        format:function(isParent){
+        format:function(){
             if(!this.treedom) throw 'the tree dom is null' ;
             if('UL'!=this.treedom.nodeName&&"LI"!=this.treedom.nodeName){
                 throw 'the tree dom must be UL or LI:'+this.treedom.nodeName;
@@ -64,8 +64,6 @@
                         WoTree.prototype.clickFun.call(this);
                     });
                     WoTree(ul).format();
-                }else if(isParent){
-                	curr.html(curr.children()).prepend('<span class="tb clo"></span><span class="tx">'+tx+'</span>');
                 }else{
                 	curr.html(curr.children()).prepend('<span class="tb tmg"></span><span class="tx">'+tx+'</span>');
                 }
