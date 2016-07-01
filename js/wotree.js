@@ -16,12 +16,12 @@
         target:function(){
             return this.treedom;
         },
-        append:function(tree){
-            var dom = WoTree(tree).format().target();
+        append:function(tree,isParent){
+            var dom = WoTree(tree).format(isParent).target();
             $(this.treedom).append(dom);
         },
         replace:function(tree){
-            if(!tree){
+            if(tree){
         		 var dom = WoTree(tree).format().target();
         		 $(this.treedom).html(dom);
         	}else{
@@ -37,7 +37,7 @@
             $(this).removeClass('clo').addClass('ope');
           }
         },
-        format:function(){
+        format:function(isParent){
             if(!this.treedom) throw 'the tree dom is null' ;
             if('UL'!=this.treedom.nodeName&&"LI"!=this.treedom.nodeName){
                 throw 'the tree dom must be UL or LI:'+this.treedom.nodeName;
@@ -50,10 +50,8 @@
                 });
             }else{
                 var tx = curr.attr('tx')||curr.text()||''; //节点显示的内容
-                //没有子节点
-                if(curr.find('>ul').length<1){
-                     curr.addClass("nmtxt").prepend('<span class="tb tmg"></span>'+tx);
-                }else{
+                //有子节点
+                if(curr.find('>ul').length>0){
                     curr.prepend('<p class="nmtxt"><span class="tb clo"></span>'+tx+'</p>');
                     var ul = curr.find('>ul').hide()[0];
                      //绑定单击事件
@@ -61,6 +59,10 @@
                         WoTree.prototype.clickFun.call(this);
                     });
                     WoTree(ul).format();
+                }else if(isParent){
+                	curr.prepend('<p class="nmtxt"><span class="tb clo"></span>'+tx+'</p>');
+                }else{
+                	curr.addClass("nmtxt").prepend('<span class="tb tmg"></span>'+tx);
                 }
             }
             return this;
