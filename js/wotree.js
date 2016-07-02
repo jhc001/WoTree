@@ -18,6 +18,9 @@
         },
         append:function(tree,isParent){
             var dom = WoTree(tree).format(isParent).target();
+            if($(this.treedom).find(">span:first-child").hasClass('clo')){
+                $(dom).hide();
+            }
             $(this.treedom).append(dom);
         },
         setName:function(name){
@@ -42,7 +45,7 @@
             $(this).removeClass('clo').addClass('ope');
           }
         },
-        format:function(){
+        format:function(isParent){
             if(!this.treedom) throw 'the tree dom is null' ;
             if('UL'!=this.treedom.nodeName&&"LI"!=this.treedom.nodeName){
                 throw 'the tree dom must be UL or LI:'+this.treedom.nodeName;
@@ -51,19 +54,20 @@
             if(this.treedom.nodeName==='UL'){
                 curr.addClass("tree");
                 curr.find('>li').each(function(){
-                    WoTree(this).format();
+                    var isParent = ($(this).attr('isParent')==='true');
+                    WoTree(this).format(isParent);
                 });
             }else{
                 var tx = curr.attr('tx')||curr.text()||''; //节点显示的内容
                 //有子节点
-                if(curr.find('>ul').length>0){
+                if((curr.find('>ul').length>0)||isParent){
                     curr.prepend('<span class="tb clo"></span><span class="tx">'+tx+'</span>');
                     var ul = curr.find('>ul').hide()[0];
                      //绑定单击事件
                     curr.find('span:first-child').click(function(){
                         WoTree.prototype.clickFun.call(this);
                     });
-                    WoTree(ul).format();
+                    if(ul)WoTree(ul).format();
                 }else{
                 	curr.html(curr.children()).prepend('<span class="tb tmg"></span><span class="tx">'+tx+'</span>');
                 }
@@ -71,6 +75,28 @@
             return this;
         }
     };
+
+    WoTree.prototype.open = function(){
+        if(this.treedom.nodeName==='LI'){
+            var curr = $(this.treedom);
+            var span = curr.find(">span:first-child");
+            if(span.hasClass('clo')){
+                span.click();   
+            }
+        }
+    }
+
+    WoTree.prototype.close = function(){
+        if(this.treedom.nodeName==='LI'){
+            var curr = $(this.treedom);
+            var span = curr.find(">span:first-child");
+            if(span.hasClass('ope')){
+                span.click();   
+            }
+        }
+    }
+
+
     WoTree.prototype.init.prototype = WoTree.prototype;
     window.WoTree = WoTree;
   }()
