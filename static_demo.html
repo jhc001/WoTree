@@ -10,14 +10,18 @@
 		<link rel="stylesheet" href="js/wotree.css" type="text/css"></link>
 	</HEAD>
 	<body>
+	<pre>
+		调用WoTree的format之后 , 最终会把ul format成下面的dom结构,
+		并且绑定为节点绑定相应的事件,使树能打开和关闭
+	</pre>
 		<ul class="tree" style="display:table">
 			<li>
 				<span class="tb clo"></span><span class="tx">用户状态</span>
 				<ul class="tree">
-					<li ><span class="tb tmg"></span><span class="tx">在线</span></li>
-					<li ><span class="tb tmg"></span><span class="tx">下线</span></li>
-					<li ><span class="tb tmg"></span><span class="tx">锁定</span></li>
-					<li ><span class="tb tmg"></span><span class="tx">封号</span></li>
+					<li><span class="tb tmg"></span><span class="tx">在线</span></li>
+					<li><span class="tb tmg"></span><span class="tx">下线</span></li>
+					<li><span class="tb tmg"></span><span class="tx">锁定</span></li>
+					<li><span class="tb tmg"></span><span class="tx">封号</span></li>
 				</ul>
 			</li>
 			<li>
@@ -32,6 +36,12 @@
 			<li><span class="tb tmg"></span><span class="tx">11111</span></li>
 			<li><span class="tb tmg"></span><span class="tx">11111</span></li>
 		</ul>
+
+		<pre>可用的图标样式</pre>
+		<lable class="tb sel"></lable>
+		<lable class="tb unsel"></lable>
+		<lable class="tb add"></lable>
+		<lable class="tb ed"></lable>
 	</body>
 	<SCRIPT LANGUAGE="JavaScript">
 
