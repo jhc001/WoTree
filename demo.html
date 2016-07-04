@@ -49,11 +49,11 @@
 		}
 
 		function addList(dom){
-			var isParent =true;
 			WoTree(dom.parentNode).append(
 					"<ul><li>活着</li>"+
 					"<li>活着</li>"+
 					"<li>死了</li></ul>");
+			$(dom).hide();
 			WoTree(dom.parentNode).open();
 		}
 

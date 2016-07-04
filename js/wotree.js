@@ -1,18 +1,21 @@
 (
   function(){
-     var  WoTree = function(treedom,template){
-        return new WoTree.prototype.init(treedom);
-    };
+     function WoTree(treedom){
+        if(!(this.constructor===WoTree)){
+            return new WoTree(treedom);
+        }
+
+        if(typeof treedom==='string'){
+            this.treedom = $(treedom)[0];
+        }else{
+            this.treedom = treedom;
+        }
+                
+        
+     };
 
     WoTree.prototype = {
         constructor:WoTree,
-        init:function(treedom){
-            if(typeof treedom==='string'){
-                this.treedom = $(treedom)[0];
-            }else{
-                this.treedom = treedom;
-            }
-        },
         target:function(){
             return this.treedom;
         },
@@ -79,7 +82,7 @@
     WoTree.prototype.open = function(){
         if(this.treedom.nodeName==='LI'){
             var curr = $(this.treedom);
-            var span = curr.find(">span:first-child");
+            var span = curr.find(">span:first-child").first();
             if(span.hasClass('clo')){
                 span.click();   
             }
@@ -95,9 +98,6 @@
             }
         }
     }
-
-
-    WoTree.prototype.init.prototype = WoTree.prototype;
     window.WoTree = WoTree;
   }()
 );
