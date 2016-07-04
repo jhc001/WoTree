@@ -10,8 +10,6 @@
         }else{
             this.treedom = treedom;
         }
-                
-        
      };
 
     WoTree.prototype = {
