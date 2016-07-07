@@ -30,6 +30,9 @@
 .add{
 	background-position:-145px 0;
 }
+.del{
+	background-position:-111px 33px;
+}
 .sel{
 	background-position:-13px 2px;
 }
