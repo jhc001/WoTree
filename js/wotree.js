@@ -17,11 +17,10 @@
         target:function(){
             return this.treedom;
         },
-        append:function(tree,isParent){
+        append:function(tree,isParent,click){
             var dom = WoTree(tree).format(isParent).target();
-            if($(this.treedom).find(">span:first-child").hasClass('clo')){
-                $(dom).hide();
-            }
+            if(click)$(dom).find('span:first-child').click(click);
+
             $(this.treedom).append(dom);
         },
         setName:function(name){

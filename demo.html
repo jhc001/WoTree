@@ -2,7 +2,7 @@
 <HTML>
 	<HEAD>
 		<TITLE>
-			wotree 
+			wotree demo 
 		</TITLE>
 		<meta charset="gbk" />
 		<style type="text/css">
@@ -44,7 +44,9 @@
 			wtree.append('<li tx="111"><ul><li>11111</li><li>11111</li></ul></li>');
 		function addson(dom){
 			var ul = WoTree(dom.parentNode.querySelector('ul'));
-			ul.append('<li>生的儿子</li>');
+			ul.append('<li>生的儿子</li>',true,function(){
+				alert(this.parentNode.innerHTML);
+			});
 			WoTree(dom.parentNode).open();
 		}
 
