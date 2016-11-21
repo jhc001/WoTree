@@ -20,7 +20,6 @@
         append:function(tree,isParent,click){
             var dom = WoTree(tree).format(isParent).target();
             if(click)$(dom).find('span:first-child').click(click);
-
             $(this.treedom).append(dom);
         },
         setName:function(name){
